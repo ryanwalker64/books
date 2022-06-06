@@ -28,14 +28,15 @@
 
         <div class="modal-outer">
             <div class="modal">
-                <form>
+                <form id="newBookFormSubmit">
                     <!-- <h2>New Book</h2> -->
-                    <input class="bookFormInput" type="text" placeholder="Title" />
-                    <input class="bookFormInput" type="text" placeholder="Author" />
-                    <input class="bookFormInput" type="number" placeholder="Pages" />
+                    <input class="bookFormInput" type="text" placeholder="Title" name="title" />
+                    <input class="bookFormInput" type="text" placeholder="Author" name="author" />
+                    <input class="bookFormInput" type="number" placeholder="Pages" name="pages" />
                     <fieldset>
                         <label for="checkbox">Have you read it?</label>
-                        <input class="bookFormInput" id="checkbox" type="checkbox" placeholder="false" />
+                        <input class="bookFormInput" id="checkbox" type="checkbox" name="finished"
+                            placeholder="false" />
                     </fieldset>
                     <button class="submit">Submit</button>
                 </form>
