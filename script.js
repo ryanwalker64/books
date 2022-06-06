@@ -1,4 +1,17 @@
 const bookCollection = document.querySelector('.bookCollection');
+const modal = document.querySelector('.modal-outer');
+const newBookBtn = document.querySelector('#addBook');
+
+newBookBtn.addEventListener('click', () => {
+    modal.style.display = 'flex';
+})
+
+modal.addEventListener('click', (e) => {
+    // console.log(e.target.className)
+    if (e.target.className == 'modal-outer') {
+        modal.style.display = 'none';
+    }
+})
 
 let myLibrary = [
     {

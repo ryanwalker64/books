@@ -3,9 +3,13 @@ body {
     font-family: sans-serif;
 }
 
-.main {
+main {
     display: flex;
     align-items: center;
+    /* justify-content: center; */
+    flex-wrap: wrap;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 .bookCollection {
@@ -13,6 +17,24 @@ body {
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
+}
+
+#addBook {
+    display: block;
+    margin: 40px 0;
+    padding: 10px 20px;
+    background: none;
+    border: none;
+    font-weight: 700;
+    font-size: 1.5rem;
+    transition-duration: 200ms;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: white;
+}
+
+#addBook:hover {
+    background-color: rgb(222, 222, 222);
 }
 
 .book {
@@ -45,7 +67,9 @@ body {
     padding: 5px 10px;
     text-transform: uppercase;
     font-weight: bold;
-    color: white
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
 }
 
 .finished {
@@ -53,7 +77,8 @@ body {
 
 }
 
-.finished:hover {
+.finished:hover,
+.submit:hover {
     background-color: rgb(35, 164, 23);
 }
 
@@ -74,4 +99,53 @@ button.unfinished {
 
 .delete:hover {
     background-color: rgb(241, 86, 86);
+}
+
+.modal-outer {
+    background-color: rgba(0, 0, 0, 0.419);
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    display: none;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.modal {
+    width: 400px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0px 5px 35px 15px rgba(0, 0, 0, 0.115);
+    margin-top: 50px;
+
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+input {
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.098);
+    padding: 10px;
+}
+
+
+fieldset {
+    border: none;
+    padding: 0;
+}
+
+.submit {
+    background-color: rgb(104, 165, 98);
+    border: none;
+    padding: 10px;
+    color: white;
+    border-radius: 5px;
+    font-weight: 700;
+    font-size: 1rem;
 }

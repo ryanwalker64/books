@@ -10,7 +10,8 @@
 </head>
 
 <body>
-    <main>
+    <main class="test">
+        <button id="addBook">Add a book</button>
         <div class="bookCollection">
             <div class="book" id="">
                 <p class="title">Book Title</p>
@@ -24,6 +25,23 @@
             </div>
 
         </div>
+
+        <div class="modal-outer">
+            <div class="modal">
+                <form>
+                    <!-- <h2>New Book</h2> -->
+                    <input class="bookFormInput" type="text" placeholder="Title" />
+                    <input class="bookFormInput" type="text" placeholder="Author" />
+                    <input class="bookFormInput" type="number" placeholder="Pages" />
+                    <fieldset>
+                        <label for="checkbox">Have you read it?</label>
+                        <input class="bookFormInput" id="checkbox" type="checkbox" placeholder="false" />
+                    </fieldset>
+                    <button class="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+
 
     </main>
 
