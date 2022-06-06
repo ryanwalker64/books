@@ -7,12 +7,14 @@ const bookFormAuthor = document.querySelector('.bookFormInput[name="author"]');
 const bookFormPages = document.querySelector('.bookFormInput[name="pages"]');
 const bookFormFinished = document.querySelector('.bookFormInput[name="finished"]');
 
+
+
 newBookBtn.addEventListener('click', () => {
     modal.style.display = 'flex';
 })
 
 modal.addEventListener('click', (e) => {
-    // console.log(e.target.className)
+
     if (e.target.className == 'modal-outer') {
         closeModal()
     }
@@ -24,16 +26,16 @@ function closeModal() {
 
 let myLibrary = [
     {
-        title: 'bookTitle',
+        title: 'Harry Potter',
         author: 'author',
-        pages: 300,
+        pages: 343,
         finished: false
 
     },
     {
-        title: 'bookTitle2',
+        title: 'Lord of the Rings',
         author: 'author2',
-        pages: 111,
+        pages: 454,
         finished: true
 
     },
@@ -66,26 +68,52 @@ function diplayBooks(Library){
             </div>
         </div>
     `
-   })
-
+   }).join('')
 
    bookCollection.innerHTML = booksHTML;
+   const bookBox = document.querySelectorAll('.book');
+   console.log(myLibrary)
 
+   for (let i = 0; i < bookBox.length; i++) {
+     bookBox[i].addEventListener('click', (e) => {
+
+        if(e.currentTarget.className === 'book' && e.target.className === 'delete'){
+            e.currentTarget.remove();
+            myLibrary.splice(i, 1);
+        } else if(e.currentTarget.className === 'book' && e.target.className === 'unfinished' ){
+            e.target.className = 'finished',
+            e.target.textContent = 'Finished'
+            myLibrary[i].finished = true;
+        } else if(e.currentTarget.className === 'book' && e.target.className === 'finished' ) {
+            e.target.className = 'unfinished',
+            e.target.textContent = 'unfinished'
+            myLibrary[i].finished = false;
+        }
+    })
+    }
+   
+}
+
+function deleteBook(book){
+    console.log('deleting')
 }
 
 
 
 bookForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    // console.log(bookFormTitle.value, bookFormAuthor.value )
+
     const newbook = new Book(bookFormTitle.value, bookFormAuthor.value, bookFormPages.value, bookFormFinished.checked);
     myLibrary.push(newbook)
     diplayBooks(myLibrary);
     closeModal()
+    bookFormTitle.value = '';
+    bookFormAuthor.value = ''; 
+    bookFormPages.value = '';
+    bookFormFinished.checked  = '';
 })
 
 diplayBooks(myLibrary);
 
-// remove book from list
-// switch finished or not
-// reset modal form
+
+// refactor code
